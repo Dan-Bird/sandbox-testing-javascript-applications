@@ -1,5 +1,5 @@
 {
-  "name": "sample",
+  "name": "palindrome",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,15 +7,16 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha",
     "test:jest": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^26.0.20",
-    "chai": "^4.3.1",
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.4",
     "jest": "^26.6.3",
-    "mocha": "^8.3.0"
+    "mocha": "^3.0.1"
   }
 }
