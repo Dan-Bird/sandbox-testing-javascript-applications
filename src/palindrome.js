@@ -1,4 +1,4 @@
-module.exports = phrase => {
+const isPalindrome = phrase => {
   if (phrase === undefined) {
     throw new Error('Invalid argument');
   }
@@ -6,3 +6,5 @@ module.exports = phrase => {
     phrase.trim().length > 0 && phrase.split('').reverse().join('') === phrase
   );
 };
+
+module.exports = isPalindrome;

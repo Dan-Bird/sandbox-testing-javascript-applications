@@ -6,48 +6,30 @@ describe('Palindrome test', () => {
   });
 
   it('should return true for argument "mom"', () => {
-    const word = 'mom';
-
-    const result = isPalindrome(word);
-
-    expect(result).toBe(true);
-  });
-
-  it('should return true for argument "dad"', () => {
-    const word = 'dad';
-
-    const result = isPalindrome(word);
-
-    expect(result).toBe(true);
+    expect(isPalindrome('mom')).toBe(true);
   });
 
   it('should return false for argument "dude"', () => {
-    const word = 'dude';
-
-    const result = isPalindrome(word);
-
-    expect(result).toBe(false);
+    expect(isPalindrome('dude')).toBe(false);
   });
 
   it('should return true for argument "mom mom"', () => {
     expect(isPalindrome('mom mom')).toBe(true);
   });
 
-  it('should return false for argument "mom dad"', () => {
-    expect(isPalindrome('mom dad')).toBe(false);
+  it('should return false for argument "dad mom"', () => {
+    expect(isPalindrome('dad mom')).toBe(false);
   });
 
-  it('should return false when argument is an empty string', () => {
+  it('should return false when argument is empty string', () => {
     expect(isPalindrome('')).toBe(false);
   });
 
-  it('should return false when argument is two empty spaces', () => {
+  it('should return false for argument of only spaces', () => {
     expect(isPalindrome('  ')).toBe(false);
   });
 
   it('should throw an exception if argument is missing', () => {
-    const call = () => isPalindrome();
-
-    expect(call).toThrow(Error, 'Invalid argument');
+    expect(() => isPalindrome()).toThrow(Error, 'Invalid argument');
   });
 });
