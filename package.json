@@ -1,5 +1,5 @@
 {
-  "name": "palindrome",
+  "name": "files",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,23 +7,15 @@
     "test": "test"
   },
   "scripts": {
-    "test": "karma start --reporters clear-screen,dots,coverage",
-    "jest": "jest"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/jest": "^26.0.20",
     "chai": "^3.5.0",
-    "istanbul": "^0.4.4",
-    "jest": "^26.6.3",
-    "karma": "^1.1.2",
-    "karma-chai": "^0.1.0",
-    "karma-chrome-launcher": "^1.0.1",
-    "karma-clear-screen-reporter": "^1.0.0",
-    "karma-cli": "^1.0.1",
-    "karma-coverage": "^1.1.1",
-    "karma-mocha": "^1.1.1",
     "mocha": "^3.0.1"
+  },
+  "dependencies": {
+    "jest": "^26.6.3"
   }
 }
