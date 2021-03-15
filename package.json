@@ -1,5 +1,5 @@
 {
-  "name": "files",
+  "name": "promises",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,10 +12,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.0.1"
+    "jest": "^26.6.3"
   },
   "dependencies": {
-    "jest": "^26.6.3"
+    "fs-promise": "^0.5.0"
   }
 }

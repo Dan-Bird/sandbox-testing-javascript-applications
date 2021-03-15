@@ -1,20 +1,29 @@
 const linesCount = require('../src/files');
+require('jest');
 
-describe('test server side callback', () => {
-  it('should return correct line count for a valid file', () => {
-    const callback = async count => {
-      await expect(linesCount('src/files.js', callback)).toBe(15);
-      return count;
+describe('test promises', () => {
+  it('should return the correct line count for a valid file', done => {
+    const checkCount = count => {
+      expect(count).toBe(15);
+
+      done();
     };
 
-    linesCount('src/flies.js', callback, undefined);
+    linesCount('src/files.js').then(checkCount);
+  });
+
+  it('should return the correct line count - using return', () => {
+    const callback = count => {
+      expect(count).toBe(15);
+    };
+
+    return linesCount('src/files.js').then(callback);
   });
 
   it('should report an error for an invalid file name', () => {
-    const onError = async error => {
-      await expect(error).toBe('unable to open file src/flies.js');
-    };
-
-    linesCount('src/flies.js', undefined, onError);
+    return expect(linesCount('src/flies.js')).rejects.toThrow(
+      Error,
+      'unable to open file src/flies.js'
+    );
   });
 });

@@ -1,15 +1,15 @@
-var fs = require('fs');
+var fs = require('fs-promise');
 
-var linesCount = function(fileName, callback, onError) {
-  var processFile = function(err, data) {
-    if(err) {
-      onError('unable to open file ' + fileName);
-    } else {
-      callback(data.toString().split('\n').length);      
-    }
+module.exports = function(fileName) {
+  var onSuccess = function(data) {
+    return Promise.resolve(data.toString().split('\n').length);
   };
   
-  fs.readFile(fileName, processFile);
+  var onError = function(err) {
+    return Promise.reject(new Error('unable to open file ' + fileName));
+  };
+  
+  return fs.readFile(fileName)
+           .then(onSuccess) 
+           .catch(onError); 
 };
-
-module.exports = linesCount;
